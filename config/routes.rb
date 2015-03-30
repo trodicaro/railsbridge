@@ -1,9 +1,17 @@
 Suggestotron::Application.routes.draw do
+resources :topics do
+  member do
+    post 'upvote'
+    post 'downvote'
+  end
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'topics#index'
+  get 'about' => 'pages#about'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
